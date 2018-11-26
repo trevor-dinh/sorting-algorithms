@@ -13,9 +13,13 @@ def partition(arr, l, h):
     firsthigh = l
     for i in range(l, h):
         if arr[i] < arr[p]:
+            if trace_debug:
+                print("arr[i] ({}) is less than arr[p] ({})".format(arr[i], arr[p]))
+                print("In loop, swapping at indicies {} and {}".format(i, firsthigh))
             arr[i], arr[firsthigh] = arr[firsthigh], arr[i]
             firsthigh += 1
     arr[p], arr[firsthigh] = arr[firsthigh], arr[p]
+    print("arr at end of quicksort: {}".format(arr))
     return firsthigh
 
 
